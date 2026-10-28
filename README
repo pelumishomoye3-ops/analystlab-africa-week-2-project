@@ -1,0 +1,70 @@
+Superstore Sales Dashboard (Power BI)
+
+Week 2 project for the AnalystLab Africa Experience Lab (Data Analytics track).
+I built an interactive Power BI dashboard from the Sample Superstore dataset to find out which products, regions and states make money for the business, and which ones lose it.
+
+Business problem
+The Superstore sells Furniture, Office Supplies and Technology products across four regions of the United States. Total sales look healthy, but management needs to know where the profit really comes from and where it is being lost, so it can decide on pricing, stock and marketing.
+
+Dataset
+Source: Sample Superstore dataset (CSV)
+Size: 9,994 order lines, 21 columns, covering 2014 to 2017
+After cleaning: 9,993 rows and 5,009 distinct orders
+Main fields: Order Date, Ship Date, Segment, Region, State, Category, Sub-Category, Sales, Quantity, Discount, Profit
+
+Tools used
+Microsoft Power BI Desktop (Power Query and DAX)
+Microsoft Word (reports)
+
+Data preparation (Power Query)
+Checked all columns for missing values (none found)
+Found and removed one duplicate record (ignoring the Row ID column)
+Changed Order Date and Ship Date to Date type
+Changed Postal Code to Text and restored the leading zeros lost in some New England states
+Trimmed extra spaces in Product Name
+
+DAX measures
+Total Sales   = SUM(Superstore[Sales])
+Total Profit  = SUM(Superstore[Profit])
+Total Orders  = DISTINCTCOUNT(Superstore[Order ID])
+Average Sales = DIVIDE([Total Sales], COUNTROWS(Superstore))
+Profit Margin = DIVIDE([Total Profit], [Total Sales])
+Dashboard
+
+The report has three pages:
+
+Overview: KPI cards, slicers, Profit by Region, Sales by Segment, Sales and Profit by Month, Sales by Category and a map of profit by state
+Detailed Analysis: Profit by Sub-Category, Top 10 States by Sales and a matrix of Category by Region
+Executive Summary: the main insights and recommendations
+
+Slicers for Year, Region, Segment and Category are synced across the pages.
+
+KPIs
+Total Sales	Total Profit	Total Orders	Profit Margin	Average Sales (per line)
+$2.30M	$286K	5,009	12.5%	$229.85
+
+Key insights
+Technology earns about half of all profit ($145K of $286K).
+Furniture has $742K in sales but only $18K in profit, a 2.5% margin.
+Tables, Bookcases and Supplies lose money.
+The Central region has a 7.9% margin, against 14.9% in the West.
+Texas, Ohio, Pennsylvania and Illinois sell a lot but lose money.
+
+Recommendations
+Review the pricing and costs of Tables and Bookcases.
+Investigate the Central region and the four loss-making states.
+Put more marketing behind Copiers, Phones and Accessories.
+Plan stock and promotions around September to December and March.
+Set a margin target of about 15% and review the dashboard every month.
+
+Files in this repository
+Superstore_Dashboard.pbix	Power BI project file
+Superstore_Dashboard_Export.pdf	Export of the dashboard pages
+BI_Overview_Report.docx	Business Intelligence overview report
+Business_Insights_and_Recommendations.docx	Detailed insights, risks, opportunities and recommendations
+Executive_Summary_Report.docx	One-page executive summary
+Sample - Superstore.csv	Original dataset
+
+
+Author
+Oluwapelumi Shomoye Data Analytics Intern, AnalystLab Africa
